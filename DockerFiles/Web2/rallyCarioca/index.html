@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Rally Carioca</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<!--CSS-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="assets/css/bootstrap-select.min.css"/>
+		<link rel="stylesheet" href="assets/css/nya-bs-select.css"/>
+		<link rel="stylesheet" href="assets/css/css.css"/>
+		<link rel="stylesheet" href="assets/css/nya-bs-select.css"/>
+		<link rel="stylesheet" href="assets/css/ng-tags-input.css"/>
+		<link rel="stylesheet" href="assets/css/ng-tags-input.bootstrap.css"/>
+
+		<!--Application Script-->
+		<script src="assets/js/vendor/angular.js"></script>
+      	<script src="assets/js/vendor/angular-cookies.js"></script>
+		<script src="assets/js/vendor/nya-bs-select.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+		<script src="assets/js/app.js"></script>
+      	<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>-->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<!--<script src="assets/js/browser.min.js"></script>
+		-->
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>		
+				
+	</head>
+	<body ng-app="codeapp" class="homepage is-preload" ng-controller="homeController">
+		<div id="page-wrapper" >
+			<!-- Header -->
+				<div id="header" class="wrapper">					
+					<!-- Nav -->
+					<div>
+						<nav id="nav" >
+							<ul>
+								<li class="current"><a href="index.html">Home</a></li>
+								<li>
+									<a href="#">Classificação</a>
+									<ul>
+										<li><a href="#">2018</a></li>
+										<li><a href="#"><strike>2017</strike></a></li>
+										<li>
+											<a href="#">Sed consequat</a>
+											<ul>
+												<li><a href="#">Lorem dolor</a></li>
+												<li><a href="#">Amet consequat</a></li>
+												<li><a href="#">Magna phasellus</a></li>
+												<li><a href="#">Etiam nisl</a></li>
+												<li><a href="#">Sed feugiat</a></li>
+											</ul>
+										</li>
+										
+									</ul>
+								</li>
+								<li><a href="left-sidebar.html">Calendário 2018</a></li>
+								<li><a href="login.html">Inscrições</a></li>
+								<li><a href="no-sidebar.html">Regulamentos</a></li>
+								<li><a href="no-sidebar.html">Patrocinadores</a></li>
+								<li><a href="no-sidebar.html">Contato</a></li>
+							</ul>
+						</nav>
+					</div>
+					<!-- Logo -->
+					<div id=logo2>
+						<h1><a href="index.html">Rally Carioca</a></h1>
+						<p>Campeonato Estadual de Rally de Regularidade do Rio de Janeiro</p>
+					</div>
+
+				</div>
+				<!--APOIO-->
+				<div id="intro" class="wrapper style1">
+					<div class="title">Competição</div>
+					<div class="container">
+						<p class="style1">Apoio</p>
+						<p class="style2">
+							<img src="images/cba.png"  style="width: 116px; height: 93px; object-fit: fill;">
+							<img src="images/faerj.png"  style="width: 116px; height: 93px; object-fit: fill;">
+							<img src="images/jcm.png"  style="width: 116px; height: 93px; object-fit: fill;">
+						</p>
+						<p class="style3">PÁGINA OFICIAL DO RALLY CARIOCA - FUNDADO EM JANEIRO DE 2017
+
+							Campeonato Estadual de Rally de Regularidade - CNPJ:23.581.703/0001-56 - Todos os direitos reservados ao Rally Carioca - © 2018
+						<!--<ul class="actions">
+							<li><a href="#" class="button style3 large">Me Cadastrar</a></li>
+						</ul> -->
+					</div>
+				</div>
+				<!--Descrição-->	
+				<div id="main" class="wrapper style2">
+					<div class="title">Temporada 2018</div>
+					<div class="container">							
+							<a href="#" class="logo2">
+								<img src="images/planoRJ.png" align="middle" width="750" height="500" style="margin-top: -100px; margin-left: 200px;" />
+							</a>
+							<div id="features">
+								<header class="style1">
+									<h2>Temporada 2018</h2>
+									<p>Graduado - Turismo - Turismo Light Novato (4X4 E 4X2) - UTV - Passeio</p>
+									<p>Teremos 6 etapas este ano. As inscrições já estão abertas para a 3ª etapa.</p>
+									<br>
+									<h1>Se inscreva abaixo!</h1>
+									<button type="button" class="button style2 large" ng-click="change()">Me inscrever</a></button>
+								</header>	
+					</div>
+				</div>
+				</div>
+				<!--Login-->
+				<nav id="nav2" ng-show="popup!=0">							
+						<form method="post" action="#">							
+							<div class="login">
+								<div class="col-1">										
+									<input type="text" name="email" ng-model="email" placeholder="email" />
+								</div>
+								<br>
+								<div class="col-1">										
+										<input type="password" name="password" ng-model="pass" placeholder="password" />
+								</div>
+								<br>
+								<div class="col-12">
+									<ul class="actions">											
+										<li><button type="button" class="style1" ng-click="loging_firebase()">Entrar</a></button></li>
+										<li><button type="button" class="style4">Me inscrever</a></button></li>
+									</ul>
+								</div>
+								<br>
+								<div class="col-12">
+										<ul class="actions">											
+											<li><button type="button" class="style3" ng-click="change()">Voltar</a></button></li>
+											
+										</ul>
+								</div>
+							</div>							
+						</form>
+				</nav>
+		</div>		
+	</body>
+</html
