@@ -7,10 +7,10 @@ RUN apt-get update && apt-get install -y build-essential python python-dev pytho
 
 WORKDIR /app
 
-RUN pip install flask uwsgi
+RUN pip install flask uwsgi mysql-connector-python
 
 COPY /app/* ./
 
-CMD [ "uwsgi", "--ini", "/app/wsgi.ini" ]
+CMD ["uwsgi", "--ini", "/app/wsgi.ini" ]
 
 EXPOSE 5000

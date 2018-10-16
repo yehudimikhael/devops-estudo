@@ -1,7 +1,32 @@
-version: "3"
-service:
-        database:
-                image: mysql
+version: "3.3"
+services:
+
+        # database:
+        #         build: ./BD/
+        #         image: mysql
+        #         ports:
+        #                 - 3306:3306
+        #         environment:
+        #                 - MYSQL_ROOT_PASSWORD=root
+        #                 - MYSQL_DATABASE=inscricao
+        backend:
+                build: ./Back
+                image: ubuntu
+                ports:
+                        - 5000:5000
+                command:
+                        sh star.sh
+                # links:
+                #         - database
+        # frontend:
+        #         build: /Web2/
+        #         image: debian
+        #         ports:
+        #                 - 80:80
+        #         links:
+        #                 - backend
+
+        
                 
 
 
