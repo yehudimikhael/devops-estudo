@@ -17,14 +17,15 @@ def db_create():
             ]
         cur.executemany("""INSERT INTO competidores
             (name, phone, vehicle)values (%s, %s, %s)""", data)
-        con.commit()        
+        con.commit()
+        check = 1        
     except:
         print("dados existem")
-        db_select()
+        check = 1
         pass
         return 0
     con.close()
-    check = 1
+    
 
 def db_select():
     if check == 0:
