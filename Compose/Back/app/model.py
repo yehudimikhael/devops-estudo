@@ -1,6 +1,6 @@
 import mysql.connector
 
-con = mysql.connector.connector(user='noc', password='concrete123..', host='docker-mysql', database='inscricao')
+con = mysql.connector.connect(user='noc', password='concrete123..', host='docker-mysql', database='inscricao')
 cur = con.cursor()
 
 def db_create():
@@ -16,11 +16,9 @@ def db_create():
             ('Vilma', '(22)9876367', 'L200'),
             ('Carlos', '(23)9993871', 'Ranger')
             ]
-    cur.executemany("""INSERT INTO competidores
+        cur.executemany("""INSERT INTO competidores
             (name, phone, vehicle)values (%s, %s, %s)""", data)
-    con.commit()
-    con.close()
-    
+        con.commit()
     except:
         print("dados existem")
         pass
@@ -29,7 +27,8 @@ def db_create():
 
 def db_select():
     cur.execute("SELECT * FROM competidores")
-    array = []
-    for data in cur:
-        array.append(data)
-    return array
+    result = cur.fetchall()
+    # array = []
+    # for data in result:
+    #     array.append(data)
+    return result
