@@ -1,18 +1,17 @@
-version: "2"
+version: "3"
 services:
         backend:
-                build: ./Back
-                image: ubuntu
+                build: ./Back/
+                image: backend
                 ports:
                         - "80:5000"
                 links:
-                        - db
                         - db:docker-mysql
                 environment:
                         DB_HOST: docker-mysql
-        database:
+        db :
                 build: ./BD/
-                image: mysql
+                image: bd
                 ports:
                         - "3306:3306"
                 environment:

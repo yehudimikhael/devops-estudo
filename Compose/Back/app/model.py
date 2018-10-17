@@ -2,7 +2,7 @@ import mysql.connector
 import os
 con = mysql.connector.connect(user='noc', password='concrete123..', host=os.environ.get('DB_HOST'), database='inscricao')
 cur = con.cursor()
-
+check = 0
 def db_create():
 
 #Se nao existe cria a tabela
@@ -18,17 +18,19 @@ def db_create():
             ]
         cur.executemany("""INSERT INTO competidores
             (name, phone, vehicle)values (%s, %s, %s)""", data)
-        con.commit()
+        con.commit()        
     except:
         print("dados existem")
         pass
         return 0
     con.close()
+    check = 1
 
 def db_select():
-    cur.execute("SELECT * FROM competidores")
-    result = cur.fetchall()
-    # array = []
-    # for data in result:
-    #     array.append(data)
-    return result
+    if check == 0:
+        db_create()
+    else:
+        cur.execute("SELECT * FROM competidores")
+        result = cur.fetchall()
+        return result
+    con.close()
