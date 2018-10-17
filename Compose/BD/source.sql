@@ -1,2 +1,2 @@
-GRANT ALL PRIVILEGES ON agenda.* TO 'noc'@'%';
+GRANT ALL PRIVILEGES ON inscricao.* TO 'noc'@'%';
 

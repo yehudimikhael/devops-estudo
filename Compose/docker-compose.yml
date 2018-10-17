@@ -2,11 +2,11 @@ version: "3"
 services:
 
         database:
-                 build: ./BD/
-                 image: mysql
-                 ports:
+                build: ./BD/
+                image: mysql
+                ports:
                         - 3306:3306
-                 environment:
+                environment:
                         - MYSQL_ROOT_PASSWORD=root
                         - MYSQL_DATABASE=inscricao
         backend:
@@ -14,15 +14,17 @@ services:
                 image: ubuntu
                 ports:
                         - 5000:5000
-                links:
-                        - database
-        frontend:
-                build: ./Web2
-                image: debian
-                ports:
-                       - 80:80
-                links:
-                       - backend
+                external_links:
+                        - db:docker-mysql
+                environment:
+                        DB_HOST: docker-mysql
+        # frontend:
+        #         build: ./Web2
+        #         image: debian
+        #         ports:
+        #                - 80:80
+        #         links:
+        #                - backend
 
 
 
