@@ -2,7 +2,7 @@ FROM ubuntu
 
 
 #Instalar todas as depencias 
-RUN apt-get update && apt-get install -y build-essential python python-dev python-pip vim && apt-get clean
+RUN apt-get update && apt-get install -y build-essential python python-dev python-pip vim iputils-ping && apt-get clean
 
 
 WORKDIR /app
