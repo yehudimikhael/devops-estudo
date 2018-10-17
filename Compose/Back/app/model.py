@@ -1,6 +1,6 @@
 import mysql.connector
-
-con = mysql.connector.connect(user='noc', password='concrete123..', host='docker-mysql', database='inscricao')
+import os
+con = mysql.connector.connect(user='noc', password='concrete123..', host=os.environ.get('DB_HOST'), database='inscricao')
 cur = con.cursor()
 
 def db_create():
@@ -11,7 +11,7 @@ def db_create():
 
 #Criar os dados na tabela
     try: 
-       data =  [
+        data =  [
             ('Fred', '(21)12345678', 'Hilux'),
             ('Vilma', '(22)9876367', 'L200'),
             ('Carlos', '(23)9993871', 'Ranger')

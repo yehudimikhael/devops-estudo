@@ -1,6 +1,6 @@
 import  socket
 from flask import Flask
-from model import db_select, db_create
+from model import db_select db_create
 from flask import jsonify
 
 app = Flask(__name__)
