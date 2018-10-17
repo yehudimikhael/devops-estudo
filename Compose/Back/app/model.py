@@ -6,11 +6,10 @@ check = 0
 def db_create():
 
 #Se nao existe cria a tabela
-    cur.execute("CREATE TABLE IF NOT EXISTS competidores(id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), phone VARCHAR(15), vehicle VARCHAR(15))")
-
-
+    
 #Criar os dados na tabela
     try: 
+        cur.execute("CREATE TABLE IF NOT EXISTS competidores(id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), phone VARCHAR(15), vehicle VARCHAR(15))")
         data =  [
             ('Fred', '(21)12345678', 'Hilux'),
             ('Vilma', '(22)9876367', 'L200'),
@@ -21,6 +20,7 @@ def db_create():
         con.commit()        
     except:
         print("dados existem")
+        db_select()
         pass
         return 0
     con.close()
