@@ -1,14 +1,5 @@
 version: "3"
 services:
-        backend:
-                build: ./Back/
-                image: backend
-                ports:
-                        - "80:5000"
-                links:
-                        - db:docker-mysql
-                environment:
-                        DB_HOST: docker-mysql
         db :
                 build: ./BD/
                 image: bd
@@ -17,6 +8,18 @@ services:
                 environment:
                         - MYSQL_ROOT_PASSWORD=root
                         - MYSQL_DATABASE=inscricao
+        
+        backend:
+                build: ./Back/
+                image: backend
+                ports:
+                        - "80:5000"
+                depends_on:
+                        - "db"
+                links:
+                        - db:docker-mysql
+                environment:
+                        DB_HOST: docker-mysql
         
         # frontend:
         #         build: ./Web2
