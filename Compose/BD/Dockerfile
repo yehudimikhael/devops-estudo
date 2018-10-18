@@ -9,12 +9,14 @@ ENV MYSQL_MY_DATABASE="inscricao"
 
 
 #GRANT ALL PRIVILEGES 
-COPY ./source.sql /usr/sql/source.sql
-#Shell para dar permissao conexao remota do usuario noc
-COPY ./entrypoint.sh    /usr/sql/entrypoint.sh
-RUN chmod +x /usr/sql/entrypoint.sh
+
+# Add the content of the sql-scripts/ directory to your image
+# All scripts in docker-entrypoint-initdb.d/ are automatically
+# executed during container startup
+#COPY ./source.sql /docker-entrypoint-initdb.d/
 
  
 EXPOSE 3306
-CMD [ "sh", "/usr/sql/entrypoint.sh" ]
-CMD [ "mysqld" ]
+#CMD [ "sh", "/usr/sql/entrypoint.sh" ]
+#CMD [ "mysqld" ]
+

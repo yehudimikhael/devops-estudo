@@ -10,7 +10,9 @@ WORKDIR /app
 RUN pip install flask uwsgi mysql-connector-python jsonify
 
 COPY /app/* ./
+COPY entrypoint.sh ./
 
-CMD ["uwsgi", "--ini", "/app/wsgi.ini" ]
+CMD [ "sh", "/app/entrypoint.sh" ]
+
 
 EXPOSE 5000
