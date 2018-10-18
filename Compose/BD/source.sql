@@ -1,4 +1,5 @@
 GRANT ALL PRIVILEGES ON inscricao.* TO 'noc'@'%';
+use inscricao;
 CREATE TABLE IF NOT EXISTS competidores(id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), phone VARCHAR(15), vehicle VARCHAR(15));
 INSERT INTO competidores(name, phone, vehicle)values('Fred', '(21)12345678', 'Hilux');
 INSERT INTO competidores(name, phone, vehicle)values('Vilma', '(22)9876367', 'L200');
